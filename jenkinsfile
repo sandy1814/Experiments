@@ -5,6 +5,7 @@ pipeline {
         stage('No Docker') {
             steps {
                 echo "No Docker"
+                sh 'touch san.txt'
             }
         }
         stage('yes Docker') {
