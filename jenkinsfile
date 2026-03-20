@@ -4,9 +4,11 @@ pipeline {
     stages {
         stage('Docker') {
             steps {
-                sh 'docker build -t my-playwright .'
-                sh 'docker run --rm my-playwright netlify --version'
-            
+                sh '''
+                    docker build -t my-playwright .'
+                    docker run --rm my-playwright netlify --version'
+                    touch san.txt
+                   '''
             }
         }
         stage('No Docker') {
