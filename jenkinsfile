@@ -19,6 +19,7 @@ pipeline {
                 sh '''
                     echo "With Docker"
                     npm --version
+                    touch san1.txt
                    '''
             }
         }
