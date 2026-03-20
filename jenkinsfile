@@ -2,18 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Docker') {
-            steps {
-                sh '''
-                    docker build -t my-playwright .'
-                    docker run --rm my-playwright netlify --version'
-                   '''
-            }
-        }
-        /*stage('No Docker') {
+        stage('No Docker') {
             steps {
                 echo "No Docker"
             }
-        }*/
+        }
+        stage('yes Docker') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
+            steps {
+                sh '''
+                    'echo "With Docker'
+                    'npm --version'
+                   '''
+            }
+        }
     }
 }
